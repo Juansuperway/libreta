@@ -118,7 +118,11 @@ const unknowEndpoint = (request, response) => {
 
 app.use(unknowEndpoint)
 
-const PORT = process.env.PORT || 3001
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
+})
+
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
