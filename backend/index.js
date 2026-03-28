@@ -43,8 +43,8 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello Juansito!</h1>')
+app.use((req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
 
 app.get('/api/notes', (request, response) => {
