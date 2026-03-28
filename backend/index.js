@@ -32,9 +32,9 @@ const requestLogger = (request, respone, next) => {
 
 app.use(express.json())
 app.use(express.static('dist'))
-app.use(cors(
-  {'https://libreta-o8vo.onrender.com/'}
-))
+app.use(cors({
+  origin: 'https://libreta-o8vo.onrender.com'
+}))
 app.use(requestLogger)
 
 app.use((req, res, next) => {
